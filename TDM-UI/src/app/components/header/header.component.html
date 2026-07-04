@@ -1,0 +1,42 @@
+<header>
+  <nav class="navbar">
+    <div class="hamburger-menu" (click)="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <div class="logo-and-links">
+      <ul class="nav-links">
+        <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/customer" routerLinkActive="active" (click)="resetServiceData()">Customer Creation</a></li>
+        <li><a routerLink="/ticket" routerLinkActive="active">Ticket Creation</a></li>
+        <li><a routerLink="/bulkupload" routerLinkActive="active">Bulk Upload</a></li>
+        <li><a routerLink="/users" routerLinkActive="active" *ngIf="role == 'Admin'">Manage Users</a></li>
+      </ul>
+    </div>
+
+    <ul class="nav-links-right">
+      <li class="account-dropdown">
+        <span class="icon-and-text cursor">
+          <i class="material-icons">account_circle</i>
+          Hi, Welcome {{ ifLoggedIn }}
+        </span>
+        <div class="dropdown-menu">
+          <a  (click)="clearStorage()" class="decoration-none cursor">
+            <i class="material-icons">logout</i><span class="logoutAlign">Logout</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="mobile-menu" [ngClass]="{ active: menuActive }">
+    <ul class="nav-links">
+      <li><a routerLink="/dashboard"  routerLinkActive="active" (click)="toggleMenu()">Dashboard</a></li>
+      <li><a routerLink="/customer"  routerLinkActive="active" (click)="toggleMenu();resetServiceData()">Customer Creation</a></li>
+      <li><a routerLink="/ticket"   routerLinkActive="active" (click)="toggleMenu()">Ticket Creation</a></li>
+      <li><a routerLink="/bulkupload"  routerLinkActive="active" (click)="toggleMenu()">Bulk Upload</a></li>
+     <li><a routerLink="/users"  routerLinkActive="active" (click)="toggleMenu()" *ngIf="role == 'Admin'">Manage Users</a></li>
+    </ul>
+  </div>
+</header>

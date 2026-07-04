@@ -1,0 +1,88 @@
+<app-spinneroverlay *ngIf="isLoading"></app-spinneroverlay>
+
+<div class="page-container">
+  <mat-card class="form-card">
+    <mat-card-title
+      >Please fill in the details to create a ticket:</mat-card-title
+    >
+    <mat-card-content>
+      <form [formGroup]="ticketForm" class="form-grid">
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>MAS Customer ID</mat-label>
+            <input matInput formControlName="Customer_ID" required />
+            <mat-error *ngIf="ticketForm.get('Customer_ID')?.hasError('pattern') && ticketForm.get('Customer_ID')?.touched">
+              Only numeric values are allowed.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Environment</mat-label>
+            <mat-select formControlName="Environment">
+              <mat-option value="WMCDCQA">WMCDCQA</mat-option>
+              <mat-option value="WMDIGTQE">WMDIGTQE</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Sub Category</mat-label>
+            <input matInput formControlName="Sub_Category" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Dispatch Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="Dispatch_Date"
+            />
+            <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>ESB Transaction ID</mat-label>
+            <input matInput formControlName="Transaction_ID" required />
+            <mat-error *ngIf="ticketForm.get('Transaction_ID')?.hasError('pattern') && ticketForm.get('Transaction_ID')?.touched">
+              Only numeric values are allowed.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Waste Type</mat-label>
+            <input matInput formControlName="Waste_Type" required />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="Category">
+              <mat-option value="TKT">Add</mat-option>
+              <mat-option value="TKT">Update</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Swappable Flag</mat-label>
+            <mat-select formControlName="Swappable_Flag">
+              <mat-option [value]="true">True</mat-option>
+              <mat-option [value]="false">False</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+      <div class="form-actions marginT30">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onSubmit()"
+          [disabled]="!ticketForm.valid"
+        >
+          Submit
+        </button>
+        <button mat-raised-button type="button" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,26 @@
+.mLeft{
+    margin-left:15px;
+}
+
+mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  mat-dialog-content{
+    height:70px;
+    width:500px;
+    margin-top:20px;
+  }
+
+  h2{
+    background-color: lightskyblue;
+  }
+
+
+  @media (max-width: 599px) {
+
+    mat-dialog-content{
+        width:100%;
+      }
+  }

@@ -1,0 +1,49 @@
+<h2 mat-dialog-title class="text-center">Add New User</h2>
+<mat-dialog-content>
+  <form [formGroup]="userForm" >
+    <div class="form-row">
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username" required />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" required />
+    <mat-error *ngIf="userForm.get('email')?.hasError('pattern') && userForm.get('email')?.touched">
+      Please enter valid email id.
+    </mat-error>
+  </mat-form-field>
+  </div>
+
+  <div class="form-row">
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" type="password" required />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="Active">Active</mat-option>
+      <mat-option value="Inactive">Inactive</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Role</mat-label>
+    <input matInput formControlName="role" required />
+   <!--<mat-select [(ngModel)]="user.role">
+      <mat-option value="User">User</mat-option>
+      <mat-option value="Admin">Admin</mat-option>
+   </mat-select>-->
+  </mat-form-field>
+</form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="userForm.invalid" (click)="onSave()">Save</button>
+</mat-dialog-actions>
+

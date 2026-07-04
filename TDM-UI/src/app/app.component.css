@@ -1,0 +1,44 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  
+  }
+  
+  .main {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    flex-grow: 1;
+  }
+
+  header, app-header {
+    color: #fff;
+    padding: 0.1rem 0;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8), 0 0 30px rgba(0, 123, 255, 0.5);
+    background: linear-gradient(0deg, aliceblue, lightskyblue); 
+  }
+
+
+  footer, app-footer {
+    background-color: aliceblue;
+    color: black;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8), 0 0 30px rgba(0, 123, 255, 0.5); 
+  }
+
+  

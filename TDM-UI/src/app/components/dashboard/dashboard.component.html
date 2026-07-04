@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="block">
+    <h3>Customers Created</h3>
+    <p class="countDesign">{{ custCount }}</p>
+  </div>
+  <div class="block">
+    <h3>Tickets Created</h3>
+    <p class="countDesign">{{ ticketCount }}</p>
+  </div>
+</div>
+
+<app-spinneroverlay *ngIf="isLoading"></app-spinneroverlay>
+
+<div class="page-container">
+  <mat-card class="form-card">
+    <mat-card-title
+      >Please fill in the details to view created
+      tickets/customers:</mat-card-title
+    >
+
+    <div *ngIf="errorMessage" style="color: red; margin-top: 10px;">
+      {{ errorMessage }}
+    </div>
+    <mat-card-content>
+      <form class="form-grid">
+        <div class="form-row marginAuto">
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Select Type</mat-label>
+            <mat-select
+              [(ngModel)]="type"
+              name="type"
+            >
+              <mat-option value="Ticket">Ticket</mat-option>
+              <mat-option value="Customer">Customer</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Start Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              name="startDate"
+              [(ngModel)]="startDate"
+              (ngModelChange)="onDateChange()"
+            />
+            <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>End Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker1"
+              name="endDate"
+              [(ngModel)]="endDate"
+              (ngModelChange)="onDateChange()"
+            />
+            <mat-datepicker-toggle [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error *ngIf="errorMessage !=''" >
+              {{ errorMessage }}
+            </mat-error>
+          </mat-form-field>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="onSubmit()"
+            class="marginT10"
+            [disabled]="isSearchDisabled"
+          >
+            Search
+          </button>
+        </div>
+
+
+
+        <div class="table-wrapper" *ngIf="tableData.data.length > 0">
+          <mat-table [dataSource]="tableData" class="mat-elevation-z8">
+            <ng-container
+              *ngFor="let column of displayedColumns; let last = last; let i = index"
+              [matColumnDef]="column"
+            >
+              <mat-header-cell *matHeaderCellDef> {{ columnHeaders[i] }}</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <!--<ng-container *ngIf="isUrlColumn(column); else regularText">
+                  <a class="cursor" [routerLink]="['/customer']" [queryParams]="{ update: true }" (click)="setTransactionID(element)"   matTooltip="Click to update customer"
+                  aria-label="Click to update customer">{{ element[column] }}</a>
+                </ng-container>
+                <ng-template #regularText>
+                  {{ element[column] }}
+                </ng-template> -->
+                <ng-container>
+                  <div [attr.id]="'cell-' + i + '-' + column + '-' + element[column]">
+                  {{ element[column] }}
+                </div>
+                </ng-container>
+              </mat-cell>
+            </ng-container>
+            <mat-header-row
+              *matHeaderRowDef="displayedColumns"
+            ></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+          </mat-table>
+        </div>
+        <div *ngIf="tableData.data.length === 0" class="no-records-cell">
+          No records!
+        </div>
+        <mat-paginator
+          [pageSizeOptions]="[10,20,30]"
+          showFirstLastButtons
+          aria-label="Select page of periodic elements"
+        ></mat-paginator>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

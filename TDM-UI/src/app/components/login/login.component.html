@@ -1,0 +1,29 @@
+<app-spinneroverlay *ngIf="isLoading"></app-spinneroverlay>
+
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-title class="marginB20 text-center">Login</mat-card-title>
+    <form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username/Email</mat-label>
+        <input matInput formControlName="user" type="text" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" />
+      </mat-form-field>
+
+      <div class="button-group">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!myFormGroup.valid"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

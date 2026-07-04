@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <app-header *ngIf="visible"></app-header>
+
+  <main class="main">
+    <div class="content">
+      <router-outlet />
+    </div>
+  </main>
+  
+  <app-footer *ngIf="visible"></app-footer>
+</div>

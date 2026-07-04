@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.marginB20{
+    margin-bottom:20px !important;
+}
+
+.marginT30{
+    margin-top: 30px;
+}
+
+.marginT10{
+    margin-top: 10px;
+}
+
+.marginAuto{
+    margin: 0 auto;
+}
+.text-center{
+    text-align: center;
+}
+
+.decoration-none{
+    text-decoration: none;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+
+.mat-mdc-paginator-range-label{
+    margin : 0px !important;
+}
+
+.mat-expansion-panel-header-title, .mat-expansion-panel-header-description{
+    font-size: 18px;
+}
+
+::ng-deep .success-snackbar {
+  --mdc-snackbar-container-color: #4caf50 !important; 
+}
+
+
+::ng-deep .error-snackbar {
+  --mdc-snackbar-container-color: #ec4223 !important;
+}

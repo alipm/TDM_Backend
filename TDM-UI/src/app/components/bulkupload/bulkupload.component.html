@@ -1,0 +1,137 @@
+<app-spinneroverlay *ngIf="isLoading"></app-spinneroverlay>
+
+<div class="page-container">
+  <mat-card class="form-card">
+    <mat-card-title
+      >Please fill in the details for bulk creation:</mat-card-title
+    >
+    <mat-card-content>
+      <form class="form-grid">
+        <div class="form-row">
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Select Type</mat-label>
+            <mat-select [(ngModel)]="bulkType" name="bulkType" (selectionChange)="enableFields()">
+              <mat-option value="ticket">Ticket</mat-option>
+              <!--<mat-option value="customer">Customer</mat-option>-->
+            </mat-select>
+          </mat-form-field>
+          <!--<mat-form-field appearance="fill" class="half-width">
+            <mat-label>No of Records</mat-label>
+            <mat-select [(ngModel)]="records" name="records">
+              <mat-option value="open">10</mat-option>
+              <mat-option value="in-progress">20</mat-option>
+              <mat-option value="closed">30</mat-option>
+            </mat-select>
+          </mat-form-field>-->
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Customer Type</mat-label>
+            <mat-select [(ngModel)]="custType" name="custType" [disabled]="bulkType=='ticket'">
+              <mat-option value="Add">Add</mat-option>
+              <mat-option value="Update">Update</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Environment</mat-label>
+            <mat-select [(ngModel)]="environment" name="environment" [disabled]="bulkType=='ticket'">
+              <mat-option value="WMCDCQA">WMCDCQA</mat-option>
+              <mat-option value="WMDIGTQE">WMDIGTQE</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>MAS Library</mat-label>
+            <input matInput [(ngModel)]="masLib" name="masLib" [disabled]="bulkType=='ticket'"/>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Company Code</mat-label>
+            <input matInput [(ngModel)]="companyCode" name="companyCode" [disabled]="bulkType=='ticket'" />
+          </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" (click)="fileInput.click()" [disabled]="checkFields()">
+            Load Input Data
+          </button>
+          <input
+            #fileInput
+            type="file"
+            accept=".xlsx, .xls"
+            hidden
+            (change)="onFileSelect($event)"
+          />
+        </div>
+
+        <div class="table-wrapper" *ngIf="tableData.data.length > 0">
+          <mat-table [dataSource]="tableData" class="mat-elevation-z8">
+            <ng-container
+              *ngFor="let column of displayedColumns; let last = last"
+              [matColumnDef]="column"
+            >
+              <mat-header-cell *matHeaderCellDef>{{ column }}</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <ng-container *ngIf="!element.isEditing">
+                  {{ element[column] }}
+                </ng-container>
+                <ng-container *ngIf="element.isEditing && !last">
+                  <input
+                    type="text"
+                    [(ngModel)]="element[column]"
+                    [name]="column"
+                    class="input-cell-input"
+                  />
+                </ng-container>
+
+                <ng-container *ngIf="last">
+                  <button
+                    mat-icon-button
+                    color="primary"
+                    (click)="toggleEditMode(element)"
+                  >
+                  <mat-icon>{{ element.isEditing ? 'check' : 'edit' }}</mat-icon>
+                </button>
+
+                  <button
+                    mat-icon-button
+                    color="warn"
+                    (click)="deleteRow(element)"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </ng-container>
+              </mat-cell>
+            </ng-container>
+            <mat-header-row
+              *matHeaderRowDef="displayedColumns"
+            ></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+          </mat-table>
+        </div>
+        <div *ngIf="tableData.data.length === 0" class="no-records-cell">
+          Please Load Input Data
+        </div>
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 20, 30]"
+          showFirstLastButtons
+          aria-label="Select page of periodic elements"
+        ></mat-paginator>
+
+        <div class="form-actions" *ngIf="tableData.data.length > 0">
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="onSubmit()"
+            [disabled]="!this.isEditMode"
+          >
+            Create
+          </button>
+          <button mat-raised-button type="button" (click)="onCancel()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

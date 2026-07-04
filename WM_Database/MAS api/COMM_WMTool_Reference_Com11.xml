@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<soapenv:Body>
+<tns:MASCustomerChangeRequest xmlns:tns="http://otc.customer.integration.mas.wm.com/">
+ <MASCustomer>
+   <SourceSystemID>Siebel</SourceSystemID>
+   <ESBTransactionID>0020500998</ESBTransactionID>
+   <NewCustomerFlag>True</NewCustomerFlag>
+   <MASCustomerLocation>
+      <LPAR />
+      <LibrarySuffix>139A</LibrarySuffix>
+      <MASCompanyCode>110</MASCompanyCode>
+   </MASCustomerLocation>
+   <SourceCustomerID>123500998</SourceCustomerID>
+   <MASCustomerType>C</MASCustomerType>
+   <PartyRoleCd>Svc</PartyRoleCd>
+   <PartyRoleCd>Bill</PartyRoleCd>
+   <CustomerBiographicalInfo>
+     <BillingNameLong>WMTool_Reference_Com11</BillingNameLong>
+      <BillingContact>WMTool_Reference_Com11</BillingContact>
+      <BillingAddress>
+         <AddrTypeCd>Street</AddrTypeCd>
+         <StreetTxt1>19112 POST OAK PARK DR</StreetTxt1>
+         <City>TEXARKANA</City>
+         <State>TX</State>
+         <Zip>77027-3326</Zip>
+         <Zip4>6502</Zip4>
+         <Country>US</Country>
+         <ValidAddress>true</ValidAddress>
+      </BillingAddress>
+     <BillingPhone>9878977843</BillingPhone>
+      <BillingEmail>mymail@gmail.com</BillingEmail>
+      <ServiceNameLong>WMTool_Reference_Com11</ServiceNameLong>
+     <ServiceContact>WMTool_Reference_Com11</ServiceContact>
+      <ServiceAddress>
+         <AddrTypeCd>Street</AddrTypeCd>
+         <StreetTxt1>19112 POST OAK PARK DR</StreetTxt1>
+         <City>TEXARKANA</City>
+         <State>TX</State>
+         <Zip>77027-3326</Zip>
+         <Zip4>6502</Zip4>
+         <Country>US</Country>
+         <ValidAddress>true</ValidAddress>
+      </ServiceAddress>
+      <ServicePhone>9878977853</ServicePhone>
+      <ServiceEmail>mymail@gmail.com</ServiceEmail>
+      <CountyName></CountyName>
+        </CustomerBiographicalInfo>
+<CustomerBillingInfo>
+      <BillCycle>CMA</BillCycle>
+      <StatusCode>_P</StatusCode>
+      <StatusCodeAttr>
+         <StatusCd>_P</StatusCd>
+         <editFlag>true</editFlag>
+      </StatusCodeAttr>
+      <FinanceChargeCode>C</FinanceChargeCode>
+      <CustomerPO />
+      <StartDate>2024-12-19</StartDate>
+   </CustomerBillingInfo>
+<CustomerSalesInfo>
+      <ValueChangeReasonCode>NBC</ValueChangeReasonCode>
+      <VCRDesc>New Bus Perm from Competitor</VCRDesc>
+      <VCRDateTime>2019-03-25T17:00:00</VCRDateTime>
+        
+      <SaleforceID>S3009200560</SaleforceID>
+      <HunterSalesEmployeeID>9999999999</HunterSalesEmployeeID> 
+	<AMPID>NOT SCORED</AMPID>
+  <FarmerSalesEmployeeID>9999999998</FarmerSalesEmployeeID> 
+    <SICCode>1422</SICCode>
+      <ContractDate>2024-12-19</ContractDate>
+      <ContractTerm>24</ContractTerm>
+      <PriceIncreaseException>false</PriceIncreaseException>
+      <PIExceptionAutoRenew>12</PIExceptionAutoRenew>
+   </CustomerSalesInfo>
+   <CustomerCreditInfo>
+      <PayMethodCd>CreditAcct</PayMethodCd>
+      <RiskCode>MAApproved</RiskCode>
+      <RMCID>0000</RMCID>
+   </CustomerCreditInfo>
+<ServiceLines>
+      <ActionCd>Add</ActionCd>
+      <Frequency>1</Frequency>
+      <BillingQuantity>1</BillingQuantity>
+      <MASServiceCd>4RL</MASServiceCd>
+      <EntMaterialCd>MSW</EntMaterialCd>
+      <Rate>1.00</Rate>
+      <RateType>Contract</RateType>
+      <TempServiceFlag>True</TempServiceFlag>
+      <TaxFlag>false</TaxFlag>
+  <SourceServiceLineItemID>2234678</SourceServiceLineItemID>
+      <SourceServiceParentLineItemID></SourceServiceParentLineItemID>
+  <Routes>
+         <MASRouteCd>H1MD</MASRouteCd>
+   <RouteDayName>MONDAY</RouteDayName>
+</Routes>
+
+<Routes>
+         <MASRouteCd>H3MD</MASRouteCd>
+   <RouteDayName>WEDNESDAY</RouteDayName>
+</Routes>
+
+<Routes>
+         <MASRouteCd>H5MD</MASRouteCd>
+   <RouteDayName>FRIDAY</RouteDayName>
+</Routes>
+
+ </ServiceLines> <CustomerAttributes>
+      <AttributeName>CONTRTYPE</AttributeName>
+      <AttributeValue>OPEN MARKET</AttributeValue>
+   </CustomerAttributes>
+ 
+   <RoutingComments>testing routing amp id from SFDC</RoutingComments>
+   <CustomerNotes>Special Intr: Phone: 9878977841 Customer Comments: Shashwat AMP ID TESTI</CustomerNotes>
+   <CustomerNotes>NG IN MAS FROM SALESFORCE</CustomerNotes>
+   <AuditCol>
+      <TransactionDateTime>2019-03-25T07:36:27</TransactionDateTime>
+      <TransactionType>Add</TransactionType>
+      <TransactionUserID>PMADIRED</TransactionUserID>
+   </AuditCol>
+</MASCustomer> 
+  </tns:MASCustomerChangeRequest>
+  </soapenv:Body>
+  </soapenv:Envelope>

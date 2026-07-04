@@ -1,0 +1,178 @@
+
+  .page-container {
+    display: flex;
+    flex-direction: column;           
+    padding-top: 40px;               
+    box-sizing: border-box;          
+  }
+  
+  .form-card {
+    padding: 20px;
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+  }
+
+  .mat-mdc-card-content{
+    padding-top:20px;
+  }
+  
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .half-width {
+    flex: 1;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .table-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    width: 100%;
+}
+
+mat-header-row, mat-row {
+  border-bottom: 1px solid #ccc; 
+  display: table-row;  /*scroll hori*/
+}
+
+mat-header-row{
+  background-color: #f1f1f1;
+}
+
+mat-header-cell, mat-cell {
+  border-right: 1px solid #ccc;
+  padding: 8px; 
+}
+
+mat-header-cell {
+  background-color: #f1f1f1; 
+  font-weight: bold; 
+}
+
+  .mat-row:last-child .mat-cell {
+    border-bottom: none; 
+  }
+  
+  .mat-header-cell:last-child, .mat-cell:last-child {
+    border-right: none; 
+  }
+
+  .mat-mdc-card-title, .mat-mdc-card-subtitle{
+    font-size: 16px;
+}
+
+   /*edit the row fileds*/
+
+  .editable-input {
+    width: 100%;          
+    padding: 4px;          
+    font-size: 12px;       
+    border-radius: 4px;    
+    box-sizing: border-box; 
+  }
+  
+  .input-cell-input {
+    width: 100%;  /* Make the input field take up the full width of the column */
+    box-sizing: border-box;  /* Prevents the input from overflowing */
+    padding: 8px;  /* Adjust padding to match your design needs */
+    border: 1px solid #ccc;  /* Border to make the input look like a text field */
+  }
+  
+
+  .no-records-cell {
+    height: 20px;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    justify-content: center;
+    background-color: #f1f1f1;
+    border: 2px solid #dcdcdc;
+    border-radius: 7px;
+  }
+
+  /*scroll hori*/
+  
+  mat-table {
+    margin-bottom: 1rem;
+    display: table;
+    border-collapse: collapse;
+    margin: 0px;
+  }
+
+  mat-cell,
+  mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    line-break: unset;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  
+
+@media (max-width: 599px) {
+    .form-card {
+      width: 100%;                   
+      max-width: 95%;                
+      padding: 15px;                 
+      box-sizing: border-box;       
+    }
+  
+    .form-row {
+      flex-direction: column;        
+      gap: 10px;                     
+    }
+  
+    .form-actions {
+      flex-direction: column;        
+      align-items: stretch;          
+      gap: 10px;
+    }
+    
+    button {
+      width: 100%;                   
+    }
+  }
+
+
+
+
+  @media screen and (max-width: 1024px) {
+    .table-wrapper{
+      overflow-x: auto;
+    }  
+  }
+  
+
+  
+  
+  ::ng-deep .success-snackbar {
+    --mdc-snackbar-container-color: #4caf50 !important; 
+  }
+  
+  
+  ::ng-deep .error-snackbar {
+    --mdc-snackbar-container-color: #ec4223 !important;
+  }

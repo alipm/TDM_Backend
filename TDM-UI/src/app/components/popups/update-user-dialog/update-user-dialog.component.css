@@ -1,0 +1,22 @@
+mat-form-field {
+  width: 45%;
+}
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  mat-dialog-content{
+    margin-top:20px;
+  }
+
+  h2{
+    background-color: lightskyblue;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+
+ 

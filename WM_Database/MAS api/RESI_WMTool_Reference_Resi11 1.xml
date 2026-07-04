@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<soapenv:Body>
+<tns:MASCustomerChangeRequest xmlns:tns="http://otc.customer.integration.mas.wm.com/">
+ <MASCustomer>
+   <SourceSystemID>SalesForce</SourceSystemID>
+   <ESBTransactionID>0020999752</ESBTransactionID>
+   <NewCustomerFlag>True</NewCustomerFlag>
+   <MASCustomerLocation>
+      <LPAR />
+      <LibrarySuffix>139A</LibrarySuffix>
+      <MASCompanyCode>175</MASCompanyCode>
+   </MASCustomerLocation>
+   <SourceCustomerID>123999752</SourceCustomerID>
+   <MASCustomerType>R</MASCustomerType>
+   <PartyRoleCd></PartyRoleCd>
+   <PartyRoleCd></PartyRoleCd>
+  <NationalAccount>false</NationalAccount>
+        <CentrallyBilledNA>false</CentrallyBilledNA>
+        <CentrallyControlledNA>false</CentrallyControlledNA>
+        <CentrallyServicedNA>false</CentrallyServicedNA> <CustomerBiographicalInfo>
+     <BillingName>WMTool_Reference_Resi11</BillingName>
+      <BillingContact>WMTool_Reference_Resi11</BillingContact>
+      <BillingAddress>
+         <AddrTypeCd>Street</AddrTypeCd>
+         <StreetTxt1>112311 PEACH ST</StreetTxt1>
+         <City>TEXARKANA</City>
+         <State>TX</State>
+         <Zip>75501</Zip>
+           <Country>US</Country>
+         <ValidAddress>true</ValidAddress>
+      </BillingAddress>
+     <BillingPhone>9878977843</BillingPhone>
+      <BillingEmail>mymail@gmail.com</BillingEmail>
+      <ServiceName>WMTool_Reference_Resi11</ServiceName>
+     <ServiceContact>WMTool_Reference_Resi11</ServiceContact>
+      <ServiceAddress>
+         <AddrTypeCd>Street</AddrTypeCd>
+         <StreetTxt1>112311 PEACH ST</StreetTxt1>
+         <City>TEXARKANA</City>
+         <State>TX</State>
+         <Zip>75501</Zip>
+           <Country>US</Country>
+         <ValidAddress>true</ValidAddress>
+      </ServiceAddress>
+      <ServicePhone>9878977853</ServicePhone>
+      <ServiceEmail>mymail@gmail.com</ServiceEmail>
+      <CountyName>Addison</CountyName>
+      <CountyCode></CountyCode>
+   </CustomerBiographicalInfo>
+<CustomerBillingInfo>
+      <BillCycle>DRA</BillCycle>
+         <FinanceChargeCode>C</FinanceChargeCode>
+     <StartDate>2024-12-19</StartDate>
+   </CustomerBillingInfo>
+<CustomerSalesInfo>
+      <ValueChangeReasonCode>NBC</ValueChangeReasonCode>
+      <VCRDesc>New Bus Perm from Competitor</VCRDesc>
+      <VCRDateTime>2019-03-25T17:00:00</VCRDateTime>
+        
+      <SaleforceID>S3009200560</SaleforceID>
+      <HunterSalesID>888</HunterSalesID> 
+	<FarmerSalesEmployeeID>9999999998</FarmerSalesEmployeeID> 
+<TransactionOwnerSalesEmployeeID>9999999998</TransactionOwnerSalesEmployeeID>
+      <SICCode>7011</SICCode>
+      <ContractDate>2024-12-19</ContractDate>
+      <ContractTerm>12</ContractTerm>
+  </CustomerSalesInfo>
+   <CustomerCreditInfo>
+      <PayMethodCd>CreditAcct</PayMethodCd>
+ <CreditLimit>1500</CreditLimit>
+ </CustomerCreditInfo>
+<ServiceLines>
+      <ActionCd>Add</ActionCd>
+      <Frequency>1</Frequency>
+      <BillingQuantity>5</BillingQuantity>
+      <MASServiceCd>64Y</MASServiceCd>
+      <EntMaterialCd>MSW</EntMaterialCd>
+      <Rate>10</Rate>
+      <RateType>Contract</RateType>
+   <ExtendedAmt>102</ExtendedAmt>
+          <OccursWhen>2</OccursWhen>    <TempServiceFlag>True</TempServiceFlag>
+  <Swappable>False</Swappable>
+   <MandatoryDisposal>False</MandatoryDisposal>
+  <StartDate>2023-12-20</StartDate>
+   <LineStatus>Active</LineStatus>
+ <AuditCol>
+            <TransactionDateTime>2023-12-20T08:52:58.023</TransactionDateTime>
+          </AuditCol>
+  <Containers>
+   <CUSFSettings>
+     </CUSFSettings>
+   </Containers>
+  <SourceServiceLineItemID>7919111</SourceServiceLineItemID>
+      <SourceServiceParentLineItemID>0</SourceServiceParentLineItemID>
+      <Routes>
+         <MASRouteCd></MASRouteCd>
+         <RouteDayName>MONDAY</RouteDayName>
+       </Routes>
+
+       <Routes>
+         <MASRouteCd></MASRouteCd>
+         <RouteDayName>TUESDAY</RouteDayName>
+       </Routes>
+
+      <Routes>
+         <MASRouteCd>?3YT</MASRouteCd>
+         <RouteDayName>WEDNESDAY</RouteDayName>
+      </Routes>
+
+          <Routes>
+         <MASRouteCd></MASRouteCd>
+         <RouteDayName>THURSDAY</RouteDayName>
+      </Routes>
+
+     <Routes>
+         <MASRouteCd></MASRouteCd>
+         <RouteDayName>FRIDAY</RouteDayName>
+      </Routes>
+     <Routes>
+         <MASRouteCd></MASRouteCd>
+         <RouteDayName>SATURDAY</RouteDayName>
+      </Routes>
+
+     <Routes>
+         <MASRouteCd></MASRouteCd>
+         <RouteDayName>SUNDAY</RouteDayName>
+      </Routes>
+
+   </ServiceLines><CustomerAttributes>
+      <AttributeName>CONTRTYPE</AttributeName>
+      <AttributeValue>OPEN MARKET</AttributeValue>
+   </CustomerAttributes>  <RoutingComments>testing routing amp id from SFDC</RoutingComments>
+   <CustomerNotes>Special Intr: Phone: 9878977841 Customer Comments: Shashwat AMP ID TESTI</CustomerNotes>
+   <CustomerNotes>NG IN MAS FROM SALESFORCE</CustomerNotes>
+ </MASCustomer> 
+  </tns:MASCustomerChangeRequest>
+  </soapenv:Body>
+  </soapenv:Envelope>

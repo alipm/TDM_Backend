@@ -1,0 +1,86 @@
+
+  .page-container {
+    display: flex;
+    flex-direction: column;           
+    padding-top: 40px;               
+    box-sizing: border-box;          
+  }
+  
+  .form-card {
+    padding: 20px;
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+  }
+
+  .mat-mdc-card-content{
+    padding-top:20px;
+  }
+  
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .half-width {
+    flex: 1;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .mat-mdc-card-title, .mat-mdc-card-subtitle{
+    font-size: 16px;
+}
+
+mat-datepicker-toggle {
+  position: absolute;
+  right: -8%;
+  bottom: 0%;
+}
+@media (max-width: 599px) {
+    .form-card {
+      width: 100%;                   
+      max-width: 95%;                
+      padding: 15px;                 
+      box-sizing: border-box;       
+    }
+  
+    .form-row {
+      flex-direction: column;        
+      gap: 10px;                     
+    }
+  
+    .form-actions {
+      flex-direction: column;        
+      align-items: stretch;          
+      gap: 10px;
+    }
+    
+    button {
+      width: 100%;                   
+    }
+  }
+  
+  ::ng-deep .success-snackbar {
+    --mdc-snackbar-container-color: #4caf50 !important; 
+  }
+  
+  
+  ::ng-deep .error-snackbar {
+    --mdc-snackbar-container-color: #ec4223 !important;
+  }

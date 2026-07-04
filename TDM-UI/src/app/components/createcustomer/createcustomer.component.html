@@ -1,0 +1,330 @@
+<app-spinneroverlay *ngIf="isLoading"></app-spinneroverlay>
+
+
+<mat-accordion>
+  <mat-expansion-panel [(expanded)]="expandedPanel1" (keydown.enter)="goToNext(2)">
+    <mat-expansion-panel-header [ngClass]="{ expanded: expandedPanel1 }">
+      <mat-panel-title> Customer Config </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card class="form-card">
+      <form [formGroup]="form" class="form-grid">
+        <div formGroupName="customerConfig" class="form-row">
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Customer Type</mat-label>
+            <mat-select formControlName="customerType" (selectionChange)="enableFields()">
+              <mat-option value="R">RESI</mat-option>
+              <mat-option value="C">COMM</mat-option>
+              <mat-option value="O">ROLLOFF</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Environment</mat-label>
+            <mat-select formControlName="environment">
+              <mat-option value="WMCDCQA">WMCDCQA</mat-option>
+              <mat-option value="WMDIGTQE">WMDIGTQE</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>MAS Library</mat-label>
+            <input matInput formControlName="MASlibrary" />
+            <mat-error
+              *ngIf="form.get('customerConfig.MASlibrary')?.hasError('pattern')"
+            >
+              Only text and numbers.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Company Code</mat-label>
+            <input matInput formControlName="companyCode" />
+            <mat-error *ngIf="form.get('customerConfig.companyCode')?.hasError('pattern')">
+              Only numbers
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card>
+    <div class="panel-footer">
+      <button
+        mat-raised-button
+        type="button"
+        color="primary"
+        (click)="goToNext(2)"
+      >
+        Next
+      </button>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [(expanded)]="expandedPanel2" (keydown.enter)="goToNext(3)">
+    <mat-expansion-panel-header [ngClass]="{ expanded: expandedPanel2 }">
+      <mat-panel-title> Customer Bio </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card class="form-card">
+      <form [formGroup]="form" class="form-grid">
+        <div formGroupName="customerBio">
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Customer Name</mat-label>
+              <input matInput formControlName="name" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Contact</mat-label>
+              <input matInput formControlName="contact" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Addr Line 1</mat-label>
+              <input matInput formControlName="address" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" />
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="state" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Zip Code</mat-label>
+              <input matInput formControlName="zipcode" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" />
+            <mat-error *ngIf="form.get('customerBio.email')?.hasError('pattern') && form.get('customerBio.email')?.touched">
+              Please enter valid email id.
+            </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Phone</mat-label>
+              <input matInput formControlName="phone" />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+    <div class="panel-footer">
+      <button
+        mat-raised-button
+        type="button"
+        color="primary"
+        (click)="goToNext(3)"
+      >
+        Next
+      </button>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [(expanded)]="expandedPanel3" (keydown.enter)="goToNext(4)">
+    <mat-expansion-panel-header [ngClass]="{ expanded: expandedPanel3 }">
+      <mat-panel-title> Service Address </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card class="form-card">
+      <form [formGroup]="form">
+        <div class="form-grid-column">
+          <div class="form-column" formGroupName="serviceAddress">
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Service Name</mat-label>
+              <input matInput formControlName="name" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Contact</mat-label>
+              <input matInput formControlName="contact" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Addr Line 1</mat-label>
+              <input matInput formControlName="address" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="state" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Zip Code</mat-label>
+              <input matInput formControlName="zipcode" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" />
+              <mat-error *ngIf="form.get('serviceAddress.email')?.hasError('pattern') && form.get('serviceAddress.email')?.touched">
+                Please enter valid email id.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Phone</mat-label>
+              <input matInput formControlName="phone" />
+            </mat-form-field>
+          </div>
+          <div class="form-column" formGroupName="billingInfo">
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Billing Cycle</mat-label>
+              <input matInput formControlName="billingCycle" />
+            </mat-form-field>
+            <!--<mat-form-field appearance="fill" class="half-width">
+              <mat-label>Start Date</mat-label>
+              <input matInput formControlName="startDate" />
+            </mat-form-field>-->
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Start Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="startDate" />
+              <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Contract Type</mat-label>
+              <input matInput formControlName="contractType" />
+            </mat-form-field>
+            <!--<mat-form-field appearance="fill" class="half-width">
+              <mat-label>Contract Date</mat-label>
+              <input matInput formControlName="contractDate" />
+            </mat-form-field>-->
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Contract Date</mat-label>
+              <input matInput [matDatepicker]="picker1" formControlName="contractDate" />
+              <mat-datepicker-toggle [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>County Code</mat-label>
+              <input matInput formControlName="countryCode" />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+    <div class="panel-footer">
+      <button
+        mat-raised-button
+        type="button"
+        color="primary"
+        (click)="goToNext(4)"
+      >
+        Next
+      </button>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [(expanded)]="expandedPanel4">
+    <mat-expansion-panel-header [ngClass]="{ expanded: expandedPanel4 }">
+      <mat-panel-title> Service Line Info </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card class="form-card onlyLine">
+      <form [formGroup]="form" class="form-grid">
+        <div formGroupName="serviceLines">
+          <div class="form-row">
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>SVC</mat-label>
+              <input matInput formControlName="svc" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Waste</mat-label>
+              <input matInput formControlName="wasteType" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Service Cycle</mat-label>
+              <input matInput formControlName="serviceCycle" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Tax</mat-label>
+              <mat-select formControlName="tax">
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>T/P</mat-label>
+              <mat-select formControlName="tp">
+                <mat-option [value]="true">True</mat-option>
+                <mat-option [value]="false">False</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="half-width">
+              <mat-label>Municipal Code</mat-label>
+              <input matInput formControlName="municipalCode" />
+            </mat-form-field>
+          </div>
+
+          <p class="text-center">
+            -------------------------Routes-------------------------
+          </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Mon">
+                  <input formControlName="monday" type="text" />
+                  <mat-error *ngIf="form.get('serviceLines.monday')?.hasError('invalidFormat')" class="beLeft">
+                   Invalid Format
+                  </mat-error>
+                </td>
+                <td data-label="Tue">
+                  <input formControlName="tuesday" type="text" />
+                  <mat-error *ngIf="form.get('serviceLines.tuesday')?.hasError('invalidFormat')" class="beLeft">
+                    Invalid Format
+                  </mat-error>
+                </td>
+                <td data-label="Wed">
+                  <input formControlName="wednesday" type="text" />
+                  <mat-error *ngIf="form.get('serviceLines.wednesday')?.hasError('invalidFormat')" class="beLeft">
+                    Invalid Format
+                  </mat-error>
+                </td>
+                <td data-label="Thu">
+                  <input formControlName="thursday" type="text" />
+                  <mat-error *ngIf="form.get('serviceLines.thursday')?.hasError('invalidFormat')" class="beLeft">
+                    Invalid Format
+                  </mat-error>
+                </td>
+                <td data-label="Fri">
+                  <input formControlName="friday" type="text" />
+                  <mat-error *ngIf="form.get('serviceLines.friday')?.hasError('invalidFormat')" class="beLeft">
+                    Invalid Format
+                  </mat-error>
+                </td>
+                <td data-label="Sat">
+                  <input formControlName="saturday" type="text" />
+                  <mat-error *ngIf="form.get('serviceLines.saturday')?.hasError('invalidFormat')" class="beLeft">
+                    Invalid Format
+                  </mat-error>
+                </td>
+                <td data-label="Sun">
+                  <input formControlName="sunday" type="text" />
+                  <mat-error *ngIf="form.get('serviceLines.sunday')?.hasError('invalidFormat')" class="beLeft">
+                    Invalid Format
+                  </mat-error>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </mat-card>
+  </mat-expansion-panel>
+
+  <div class="form-actions">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!isFormValidExcludingFields(form, excludedFields)"
+      (click)="onSubmit()"
+    >
+    {{ transID == null ? 'Create' : 'Update' }}
+    </button>
+    <button mat-raised-button type="button" (click)="onCancel()">Cancel</button>
+  </div>
+</mat-accordion>

@@ -1,0 +1,75 @@
+.admin-container {
+    margin:40px;
+    padding: 20px;
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+  }
+
+  .table-wrapper{
+    width: 100%;
+    position: relative;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;  
+    }
+  .button-container{
+    display: flex;
+    justify-content: flex-end; 
+  }
+
+
+  .mat-column-email {
+    min-width: 170px; 
+  }
+
+    mat-header-cell, mat-cell, mat-footer-cell {
+      border: 1px solid #ccc;
+    }
+
+
+    mat-header-row {
+      border-bottom: 2px solid #333;
+    }
+
+    mat-row {
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+
+    mat-row:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+
+    mat-header-row{
+      background-color: #f1f1f1;
+      font-weight: bold;
+    }
+     
+  @media (max-width: 768px) {
+    .table-wrapper {
+      overflow-x: scroll;
+    }
+
+    mat-table {
+      width: 100%; 
+      table-layout: fixed; 
+    }
+  
+    mat-header-cell, mat-cell {
+      min-width: 120px; 
+    }
+  
+    mat-column-actions {
+      min-width: 80px;
+      
+    }
+  }
+
+  ::ng-deep .success-snackbar {
+    --mdc-snackbar-container-color: #4caf50 !important; 
+  }
+  
+  
+  ::ng-deep .error-snackbar {
+    --mdc-snackbar-container-color: #ec4223 !important;
+  }
